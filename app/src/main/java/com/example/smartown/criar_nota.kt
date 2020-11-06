@@ -1,4 +1,4 @@
-package com.example.smartown.entities
+package com.example.smartown
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

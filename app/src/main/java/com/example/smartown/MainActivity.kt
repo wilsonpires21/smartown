@@ -9,7 +9,6 @@ import android.view.MenuItem
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartown.adapter.LineAdapter
-import com.example.smartown.entities.criar_nota
 import com.example.smartown.dataclasses.Notas
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -43,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         myList = ArrayList<Notas>()
 
         for (i in 0 until 500) {
-            myList.add(Notas("Nota $i", "Nota", "Data $i"))
+            myList.add(Notas("Titulo $i", "Subtitulo", "Descricao $i"))
         }
 
         recycler_view.adapter = LineAdapter(myList)

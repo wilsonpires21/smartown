@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".entities.criar_nota">
+    tools:context=".criar_nota">
 
     <TextView
         android:id="@+id/criar"
