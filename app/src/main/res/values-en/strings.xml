@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SMARTOWN</string>
+    <string name="criarNota">Create Note</string>
+    <string name="titulo">Title</string>
+    <string name="subtitulo">Subtitle</string>
+    <string name="descricao">Description</string>
+</resources>

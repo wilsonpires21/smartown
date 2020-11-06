@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SMARTOWN</string>
+    <string name="criarNota">Criar Nota</string>
+    <string name="titulo">Título</string>
+    <string name="subtitulo">Subtítulo</string>
+    <string name="descricao">Descrição</string>
+</resources>
