@@ -4,4 +4,5 @@
     <string name="titulo">Título</string>
     <string name="subtitulo">Subtítulo</string>
     <string name="descricao">Descrição</string>
+    <string name="empty_not_saved">Nota vazia</string>
 </resources>

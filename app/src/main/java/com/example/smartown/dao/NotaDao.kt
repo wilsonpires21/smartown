@@ -1,13 +1,14 @@
 package com.example.smartown.dao
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.smartown.entities.Nota
 
 
-
+@Dao
 interface NotaDao {
 
     @Query("SELECT * FROM nota_table ORDER BY titulo ASC")
@@ -17,5 +18,5 @@ interface NotaDao {
     suspend fun insert(nota: Nota)
 
     @Query("DELETE FROM nota_table")
-    suspend fun deleteAll()
+   suspend fun deleteAll()
 }

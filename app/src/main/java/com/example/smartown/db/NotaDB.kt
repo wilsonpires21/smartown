@@ -10,7 +10,7 @@ import com.example.smartown.entities.Nota
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = arrayOf(Nota::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(Nota::class), version = 5, exportSchema = false)
 public abstract class NotaDB : RoomDatabase() {
 
     abstract fun notaDao(): NotaDao
@@ -59,7 +59,7 @@ public abstract class NotaDB : RoomDatabase() {
                     "notas_database"
                 )
                     //estratégia de destruição
-                    //.fallbackToDestructiveMigration()
+                    .fallbackToDestructiveMigration()
                     .addCallback(WordDatabaseCallback(scope))
                     .build()
 
