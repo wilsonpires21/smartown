@@ -17,7 +17,9 @@ class NotaAdapter internal constructor(
     private var notas = emptyList<Nota>() // Cached copy of cities
 
     class NotaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val notaItemView: TextView = itemView.findViewById(R.id.titulo)
+        val tituloItemView: TextView = itemView.findViewById(R.id.titulo)
+        val subItemView: TextView = itemView.findViewById(R.id.subtitulo)
+        val descItemView: TextView = itemView.findViewById(R.id.descricao)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotaViewHolder {
@@ -27,7 +29,9 @@ class NotaAdapter internal constructor(
 
     override fun onBindViewHolder(holder: NotaViewHolder, position: Int) {
         val current = notas[position]
-        holder.notaItemView.text = current.id.toString() + " - " + current.titulo + "-" + current.subtitulo + "-" + current.descricao
+        holder.tituloItemView.text = current.id.toString() + " - " + current.titulo
+        holder.subItemView.text = current.subtitulo
+        holder.descItemView.text = current.descricao
     }
 
     internal fun setNotas(notas: List<Nota>) {

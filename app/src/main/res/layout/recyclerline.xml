@@ -19,7 +19,7 @@
         android:text="@string/titulo" />
 
     <TextView
-        android:id="@+id/subtitulo"
+        android:id="@+id/descricao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/titulo"
@@ -28,7 +28,7 @@
         android:text="@string/descricao" />
 
     <TextView
-        android:id="@+id/descricao"
+        android:id="@+id/subtitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/titulo"
