@@ -20,9 +20,9 @@ class criar_nota : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_criar_nota)
 
-        tituloText = findViewById(R.id.titulo)
-        subText = findViewById(R.id.subtitulo)
-        descText = findViewById(R.id.descricao)
+        tituloText = findViewById(R.id.editTextTextPersonName)
+        subText = findViewById(R.id.editTextTextPersonName2)
+        descText = findViewById(R.id.editTextTextPersonName3)
 
         val button = findViewById<Button>(R.id.inserir)
         button.setOnClickListener {

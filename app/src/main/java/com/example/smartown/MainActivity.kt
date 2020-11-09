@@ -13,15 +13,33 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.smartown.adapter.NotaAdapter
 import com.example.smartown.entities.Nota
 import com.example.smartown.viewModel.NotaViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity(val nota: Nota) : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var notaViewModel: NotaViewModel
     private val newWordActivityRequestCode = 1
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+
+        val adapter = NotaAdapter(this)
+        recycler_view.adapter = adapter
+        recycler_view.layoutManager = LinearLayoutManager(this)
+
+        notaViewModel = ViewModelProvider(this).get(NotaViewModel::class.java)
+        notaViewModel.allNotas.observe(this, Observer { notas ->
+            // Update the cached copy of the words in the adapter.
+            notas?.let { adapter.setNotas(it) }
+
+        })
+
+    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
@@ -34,8 +52,8 @@ class MainActivity(val nota: Nota) : AppCompatActivity() {
 
         return when (item.itemId) {
             R.id.inserir -> {
-                val intent = Intent(this, criar_nota::class.java)
-                startActivity(intent)
+                val intent = Intent(this@MainActivity, criar_nota::class.java)
+                startActivityForResult(intent, newWordActivityRequestCode)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -43,33 +61,8 @@ class MainActivity(val nota: Nota) : AppCompatActivity() {
 
     }
 
-    @SuppressLint("WrongViewCast")
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    //@SuppressLint("WrongViewCast")
 
-        // recycler view
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler)
-        val adapter = NotaAdapter(this)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-        notaViewModel = ViewModelProvider(this).get(NotaViewModel::class.java)
-        notaViewModel.allNotas.observe(this, Observer { notas ->
-            // Update the cached copy of the words in the adapter.
-            notas?.let { adapter.setNotas(it) }
-
-        })
-
-        //Fab
-
-        val but = findViewById<Button>(R.id.inserir)
-        but.setOnClickListener {
-            val intent = Intent(this@MainActivity, criar_nota::class.java)
-            startActivityForResult(intent, newWordActivityRequestCode)
-        }
-
-    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
