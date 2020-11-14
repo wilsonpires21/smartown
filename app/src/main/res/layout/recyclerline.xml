@@ -4,7 +4,8 @@
     android:id="@+id/recycler"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#00BCD4">
+    android:layout_margin="7dp"
+    android:background="#9DD9E1">
 
     <TextView
         android:id="@+id/titulo"
@@ -16,7 +17,10 @@
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:text="@string/titulo" />
+        android:fontFamily="serif"
+        android:text="@string/titulo"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/descricao"
@@ -25,6 +29,7 @@
         android:layout_below="@id/titulo"
         android:layout_alignStart="@+id/titulo"
         android:layout_alignLeft="@+id/titulo"
+        android:fontFamily="serif"
         android:text="@string/descricao" />
 
     <TextView
@@ -37,6 +42,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
+        android:fontFamily="serif"
         android:text="@string/subtitulo" />
 
 </RelativeLayout>

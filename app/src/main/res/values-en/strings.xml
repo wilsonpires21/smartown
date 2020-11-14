@@ -6,4 +6,8 @@
     <string name="subtitulo">Subtitle</string>
     <string name="descricao">Description</string>
     <string name="empty_not_saved">Empty note</string>
+    <string name="nomeUtilizador">Username</string>
+    <string name="pass">Password</string>
+    <string name="login">Login</string>
+    <string name="irNotas">Notes</string>
 </resources>
