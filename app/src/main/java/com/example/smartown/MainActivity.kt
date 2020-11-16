@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
 
 
-                        val intent = Intent(this@MainActivity, Mapa::class.java)
+                        val intent = Intent(this@MainActivity, MapsActivity::class.java)
                         startActivity(intent)
 
 

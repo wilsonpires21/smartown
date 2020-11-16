@@ -9,4 +9,6 @@
     <string name="pass">Palavra-passe</string>
     <string name="login">Login</string>
     <string name="irNotas">Notas</string>
+    <string name="title_activity_mapa1">Map</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
