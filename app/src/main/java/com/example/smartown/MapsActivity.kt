@@ -2,7 +2,8 @@ package com.example.smartown
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
+import android.view.Menu
+import android.view.MenuInflater
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -13,6 +14,14 @@ import com.google.android.gms.maps.model.MarkerOptions
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
+
+    //botao menu(cima)
+    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return true
+    }*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

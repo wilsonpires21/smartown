@@ -3,6 +3,8 @@ package com.example.smartown
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
@@ -17,6 +19,7 @@ import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,19 +49,15 @@ class MainActivity : AppCompatActivity() {
 
                     Log.e("Sucesso", response.toString())
                     if (response.isSuccessful) {
-
-
                         val intent = Intent(this@MainActivity, MapsActivity::class.java)
                         startActivity(intent)
-
-
                     }
                 }
 
                 override fun onFailure(call: Call<OutputPost>, t: Throwable) {
                     Log.e("Error", t.toString())
-                    username.error = "Erro ao efetuar login!"
-                    password.error = "Erro ao efetuar login!"
+                    username.error = "Username desconhecido!"
+                    password.error = "Password errada!"
 
                 }
             })

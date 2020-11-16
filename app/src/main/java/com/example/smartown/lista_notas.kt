@@ -33,7 +33,7 @@ class lista_notas : AppCompatActivity() {
 
         notaViewModel = ViewModelProvider(this).get(NotaViewModel::class.java)
         notaViewModel.allNotas.observe(this, Observer { notas ->
-            // Update the cached copy of the words in the adapter.
+
             notas?.let { adapter.setNotas(it) }
         })
     }

@@ -36,13 +36,11 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".criar_nota" />
         <activity android:name=".lista_notas" />
-
     </application>
 
 </manifest>

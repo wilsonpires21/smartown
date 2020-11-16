@@ -9,6 +9,9 @@
     <string name="pass">Palavra-passe</string>
     <string name="login">Login</string>
     <string name="irNotas">Notas</string>
-    <string name="title_activity_mapa1">Map</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps">Mapa</string>
+    <string name="inserirProblema">Inserir Problema</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="coordenadas">Coordenadas</string>
 </resources>
