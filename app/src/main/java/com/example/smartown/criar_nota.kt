@@ -7,8 +7,6 @@ import android.text.TextUtils
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import kotlinx.android.synthetic.main.recyclerline.*
-import javax.security.auth.Subject
 
 class criar_nota : AppCompatActivity() {
 
@@ -24,7 +22,7 @@ class criar_nota : AppCompatActivity() {
         subText = findViewById(R.id.editTextTextPersonName2)
         descText = findViewById(R.id.editTextTextPersonName3)
 
-        val button = findViewById<Button>(R.id.inserir)
+        val button = findViewById<Button>(R.id.inserir_prob)
         button.setOnClickListener {
             val replyIntent = Intent()
             if (TextUtils.isEmpty(tituloText.text)) {

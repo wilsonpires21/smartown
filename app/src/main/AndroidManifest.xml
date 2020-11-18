@@ -41,6 +41,7 @@
         </activity>
         <activity android:name=".criar_nota" />
         <activity android:name=".lista_notas" />
+        <activity android:name=".Problemas"/>
     </application>
 
 </manifest>
