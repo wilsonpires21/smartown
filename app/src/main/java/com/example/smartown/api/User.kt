@@ -10,11 +10,13 @@ data class User(
 data class Problemas(
     val id: Int,
     val descr: String,
-    val userid: Int,
-    val geo: Geo
+    val user_id: Int,
+    val tipo_id: Int,
+    val lat: Float,
+    val lgn: Float
 )
 
-data class Geo(
-    val lat: String,
-    val lng: String
+data class Tipo(
+    val id: Int,
+    val descri: String
 )
