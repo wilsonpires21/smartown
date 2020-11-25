@@ -15,4 +15,10 @@
     <string name="longitude">Longitude</string>
     <string name="coordenadas">Coordenadas</string>
     <string name="tipo">Tipo</string>
+    <string name="acidente">1 - Acidente</string>
+    <string name="obras">2 - Obras</string>
+    <string name="transito">3 - Trânsito</string>
+    <string name="estrada">4 - Estrada cortada</string>
+    <string name="outros">5 - Outros</string>
+    <string name="inserir">Inserir</string>
 </resources>

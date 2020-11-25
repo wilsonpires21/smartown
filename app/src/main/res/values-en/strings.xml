@@ -16,4 +16,10 @@
     <string name="longitude">Longitude</string>
     <string name="coordenadas">Coordinates</string>
     <string name="tipo">Type</string>
+    <string name="acidente">1 - Accident</string>
+    <string name="obras">2 - Construction</string>
+    <string name="transito">3 - Transit</string>
+    <string name="estrada">4 - Cut road</string>
+    <string name="outros">5 - Others</string>
+    <string name="inserir">Insert</string>
 </resources>

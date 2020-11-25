@@ -15,6 +15,10 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
+    override fun onBackPressed(){
+
+    }
+
     private lateinit var mMap: GoogleMap
     private val newWordActivityRequestCode = 1
 
