@@ -15,10 +15,6 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
-    override fun onBackPressed(){
-
-    }
-
     private lateinit var mMap: GoogleMap
     private val newWordActivityRequestCode = 1
 
@@ -58,5 +54,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val sydney = LatLng(-34.0, 151.0)
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+    }
+
+    override fun onBackPressed(){
+
     }
 }

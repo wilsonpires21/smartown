@@ -21,4 +21,5 @@
     <string name="estrada">4 - Estrada cortada</string>
     <string name="outros">5 - Outros</string>
     <string name="inserir">Inserir</string>
+    <string name="logout">Logout</string>
 </resources>

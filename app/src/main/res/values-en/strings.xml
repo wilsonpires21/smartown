@@ -22,4 +22,5 @@
     <string name="estrada">4 - Cut road</string>
     <string name="outros">5 - Others</string>
     <string name="inserir">Insert</string>
+    <string name="logout">Logout</string>
 </resources>
