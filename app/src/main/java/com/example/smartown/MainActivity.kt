@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
-        //faz login ( vai para página do mapa)
+        //faz login ( vai para pagina do mapa)
         var botao_mapa: Button? = null
         botao_mapa = findViewById(R.id.button_login)
         botao_mapa?.setOnClickListener {
