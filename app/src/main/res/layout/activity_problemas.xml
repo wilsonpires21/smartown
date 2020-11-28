@@ -147,7 +147,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/campo_tipo"
         android:layout_width="75dp"
         android:layout_height="47dp"
         android:layout_marginStart="90dp"
@@ -243,5 +243,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="addProb"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

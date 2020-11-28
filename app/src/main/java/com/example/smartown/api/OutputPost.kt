@@ -10,3 +10,10 @@ data class Result(
     val username: String,
     val password: String
 )
+
+data class ResultProb(
+    val tipo_id: Int,
+    val lat: Float,
+    val lng: Float,
+    val descr: String
+)

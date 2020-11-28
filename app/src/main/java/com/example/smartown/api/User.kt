@@ -13,7 +13,7 @@ data class Problemas(
     val user_id: Int,
     val tipo_id: Int,
     val lat: Float,
-    val lgn: Float
+    val lng: Float
 )
 
 data class Tipo(
