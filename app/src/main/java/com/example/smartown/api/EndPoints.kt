@@ -1,5 +1,6 @@
 package com.example.smartown.api
 
+import com.google.android.gms.maps.LocationSource
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -17,4 +18,10 @@ interface EndPoints {
                  @Field("lat") lat: Float,
                  @Field("lng") lng: Float,
                  @Field("descr") descr: String): Call<ResultProb>
+
+    @FormUrlEncoded
+    @POST("/api/users/problemas/pontos")
+    fun postPontos(): Call<List<ResultProb>>
 }
+
+
