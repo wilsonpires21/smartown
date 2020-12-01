@@ -17,11 +17,10 @@ interface EndPoints {
     fun postProb(@Field("tipo_id") tipo_id: Int,
                  @Field("lat") lat: Float,
                  @Field("lng") lng: Float,
-                 @Field("descr") descr: String): Call<ResultProb>
+                 @Field("descr") descr: String): Call<Location>
 
-    @FormUrlEncoded
     @POST("/api/users/problemas/pontos")
-    fun postPontos(): Call<List<ResultProb>>
+    fun getPontos(): Call<List<Problem>>
 }
 
 

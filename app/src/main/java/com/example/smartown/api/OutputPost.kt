@@ -11,7 +11,7 @@ data class Result(
     val password: String
 )
 
-data class ResultProb(
+data class Location(
     val tipo_id: Int,
     val lat: Float,
     val lng: Float,

@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.smartown.api.EndPoints
 import com.example.smartown.api.OutputPost
 import com.example.smartown.api.ServiceBuilder
-import com.example.smartown.api.User
+import com.example.smartown.api.Users
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

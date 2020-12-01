@@ -7,7 +7,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.smartown.api.EndPoints
-import com.example.smartown.api.ResultProb
+import com.example.smartown.api.Location
 import com.example.smartown.api.ServiceBuilder
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,13 +30,13 @@ class Problemas : AppCompatActivity() {
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.postProb(tipo_id, lat, lng, descr)
 
-        call.enqueue(object : Callback<ResultProb> {
+        call.enqueue(object : Callback<Location> {
 
-            override fun onResponse(call: Call<ResultProb>, response: Response<ResultProb>) {
+            override fun onResponse(call: Call<Location>, response: Response<Location>) {
 
             }
 
-            override fun onFailure(call: Call<ResultProb>, t: Throwable) {
+            override fun onFailure(call: Call<Location>, t: Throwable) {
 
             }
         })

@@ -1,13 +1,13 @@
 package com.example.smartown.api
 
 
-data class User(
+data class Users(
     val id: Int,
     val username: String,
     val password: String
 )
 
-data class Problemas(
+data class Problem(
     val id: Int,
     val descr: String,
     val user_id: Int,

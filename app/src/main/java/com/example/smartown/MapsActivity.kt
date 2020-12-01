@@ -6,10 +6,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import com.example.smartown.api.EndPoints
-import com.example.smartown.api.ResultProb
-import com.example.smartown.api.ServiceBuilder
-import com.example.smartown.api.User
+import android.widget.Toast
+import com.example.smartown.api.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -18,14 +16,14 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.activity_criar_nota.*
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private val newWordActivityRequestCode = 1
-    private lateinit var problemas: List<ResultProb>
+    private lateinit var problemas: List<Problem>
 
     //botao menu(cima)
 
@@ -56,21 +54,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.postPontos()
-        var position: LatLng
+        val call = request.getPontos()
 
-        call.enqueue(object: Callback<ResultProb> {
-            override fun onResponse(call: Call<ResultProb>, response: Response<ResultProb>){
-                if(response.isSuccessful){
-                    problemas = response.body()!!
-                        position = LatLng()
+        call.enqueue(object : Callback<List<Problem>>{
+            override fun onResponse(call: Call<List<Problem>>, response: Response<List<Problem>>){
+                if(response.isSuccessful){ //working
+                    mMap.clear()
+                    for(entry in response.body()!!){
+                        val loc = LatLng(entry.lat.toDouble(), entry.lng.toDouble())
 
+                        mMap.addMarker(MarkerOptions().position(loc).title("${entry.id}, ${entry.descr}"))
 
+                    }
                 }
             }
 
-            override fun onFailure(call: Call<ResultProb>, t: Throwable) {
-
+            override fun onFailure(call: Call<List<Problem>>, t: Throwable){
+                Toast.makeText(this@MapsActivity , "${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }
