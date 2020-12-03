@@ -1,13 +1,18 @@
 package com.example.smartown
 
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import com.example.smartown.api.*
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -19,11 +24,15 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
+    private val LOCATION_PERMISSION_REQUEST_CODE = 1
     private lateinit var mMap: GoogleMap
     private val newWordActivityRequestCode = 1
     private lateinit var problemas: List<Problem>
+    private lateinit var lastLocation: Location
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     //botao menu(cima)
 
@@ -53,6 +62,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.getPontos()
 
@@ -63,7 +74,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     for(entry in response.body()!!){
                         val loc = LatLng(entry.lat.toDouble(), entry.lng.toDouble())
 
-                        mMap.addMarker(MarkerOptions().position(loc).title("${entry.id}, ${entry.descr}"))
+                        mMap.addMarker(MarkerOptions().position(loc).title("${entry.tipo_id}, ${entry.descr}"))
 
                     }
                 }
@@ -78,13 +89,36 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        setUpMap()
+    }
+
+    fun setUpMap(){
+
+        if (ActivityCompat.checkSelfPermission(this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+
+            ActivityCompat.requestPermissions(this,
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE)
+
+            return
+
+        }else{
+            // 1
+            mMap.isMyLocationEnabled = true
+
+            //2
+            fusedLocationClient.lastLocation.addOnSuccessListener(this) { location ->
+
+                if(location != null){
+                lastLocation = location
+                    Toast.makeText(this@MapsActivity, lastLocation.toString(), Toast.LENGTH_SHORT).show()
+                    val currentLatLng = LatLng(location.latitude, location.longitude)
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
+                }
+            }
+        }
     }
 
     override fun onBackPressed(){
-
     }
 }

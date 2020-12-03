@@ -19,7 +19,7 @@ interface EndPoints {
                  @Field("lng") lng: Float,
                  @Field("descr") descr: String): Call<Location>
 
-    @POST("/api/users/problemas/pontos")
+    @GET("/api/users/problemas/pontos")
     fun getPontos(): Call<List<Problem>>
 }
 
